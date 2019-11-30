@@ -1,33 +1,36 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from  'react-router-dom'
-import IndexPage from './pages/index'
-import NotFound from './pages/404'
-import routes from './config/routes'
+import { BrowserRouter, Route } from  'react-router-dom';
+import IndexPage from './pages/index';
+import Login from './pages/login'
+import NotFound from './pages/notFound';
+import './App.css';
 
-const router = [
+
+const baseRoutes = [
   { 
-    name: 12,
-    path: '/index',
+    name: 'index',
+    path: '/',
     component: IndexPage
   }, {
-    name: '404',
+    name: 'login',
+    path: '/login',
+    component: Login
+  }, {
+    name: 'notFound',
     path: '/404',
     component: NotFound
   }
 ]
 
-console.log(`---------->`, router, routes)
-
-
 const App: React.FC = () => {
   return (
-    <Router>
+    <BrowserRouter>
       {
-        router.map(route => {
+        baseRoutes.map(route => {
           return <Route key={route.name} path={route.path} component={route.component}></Route>
         })
       }
-    </Router> 
+    </BrowserRouter> 
   );
 }
 

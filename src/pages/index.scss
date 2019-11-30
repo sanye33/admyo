@@ -1,0 +1,13 @@
+.index-body {
+  display: flex;
+  flex-direction: row;
+  .index-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .index-view {
+    flex: 1;
+    border: thin solid red;
+  }
+}
